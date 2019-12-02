@@ -43,16 +43,16 @@ public class FrmTablero extends javax.swing.JFrame {
         imb=imb.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
         imn=imn.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
         
-        btn4_2.setIcon(icn);
-        btn4_2.setBackground(Color.yellow);
+        icb= new ImageIcon(imb);
+        icn= new ImageIcon(imn);
         
         tablero1.agregarAlFinal("1_1", -1);  System.out.println("1");
         tablero1.agregarAlFinal("1_2", -1);  System.out.println("2");
         tablero1.agregarAlFinal("1_3", -1);  System.out.println("3");
         
-        tablero1.agregarAlFinal("2_1", -1);  tablero1.agregarAlFinal("2_2", -1);  tablero1.agregarAlFinal("2_3", 1);
+        tablero1.agregarAlFinal("2_1", -1);  tablero1.agregarAlFinal("2_2", 1);  tablero1.agregarAlFinal("2_3", 1);
         
-        tablero1.agregarAlFinal("3_1", -1);  tablero1.agregarAlFinal("3_2", -1);  tablero1.agregarAlFinal("3_3", -1);
+        tablero1.agregarAlFinal("3_1", 2);  tablero1.agregarAlFinal("3_2", -1);  tablero1.agregarAlFinal("3_3", 2);
         
         tablero1.mostrarTodo();
         
