@@ -6,6 +6,8 @@
 package proyecto_final_othello;
 import clases.nodos;
 import clases.tablero;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,11 +24,15 @@ public class FrmTablero extends javax.swing.JFrame {
      */
     tablero tablero1= new tablero();
     boolean val;
+    
+    ImageIcon icb;
+    ImageIcon icn;
             
-    Image imb= new ImageIcon("src/imagenes/fichaBlanca.png").getImage();
-    Image imn= new ImageIcon("src/imagenes/fichaNegra.png").getImage();
+    Image imb= new ImageIcon("src/imagenes/fichaBlancaJ.png").getImage();
+    Image imn= new ImageIcon("src/imagenes/fichaNegraJ.png").getImage();
     public FrmTablero() {
         initComponents();
+        
         
         /*nodos N1_1= new nodos("1_1", -1); nodos N1_2= new nodos("1_2", -1); nodos N1_3= new nodos("1_3", -1);
         
@@ -34,11 +40,17 @@ public class FrmTablero extends javax.swing.JFrame {
         
         nodos N3_1= new nodos("3_1", -1); nodos N3_2= new nodos("3_2", -1); nodos N3_3= new nodos("3_3", -1);*/
         
+        imb=imb.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+        imn=imn.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+        
+        btn4_2.setIcon(icn);
+        btn4_2.setBackground(Color.yellow);
+        
         tablero1.agregarAlFinal("1_1", -1);  System.out.println("1");
         tablero1.agregarAlFinal("1_2", -1);  System.out.println("2");
         tablero1.agregarAlFinal("1_3", -1);  System.out.println("3");
         
-        tablero1.agregarAlFinal("2_1", -1);  tablero1.agregarAlFinal("2_2", -1);  tablero1.agregarAlFinal("2_3", -1);
+        tablero1.agregarAlFinal("2_1", -1);  tablero1.agregarAlFinal("2_2", -1);  tablero1.agregarAlFinal("2_3", 1);
         
         tablero1.agregarAlFinal("3_1", -1);  tablero1.agregarAlFinal("3_2", -1);  tablero1.agregarAlFinal("3_3", -1);
         
@@ -59,10 +71,26 @@ public class FrmTablero extends javax.swing.JFrame {
     }
     
     public void pintar(){
-        /*for(JButton b:jPanel2.getComponents()){
-            
-        }*/
+        for(Component c:jPanel2.getComponents()){
+            if(((JButton)c).getActionListeners().length>0){
+                System.out.println("Paso 1");
+                nodos aux = tablero1.devolverNodo(c.getName());
+                if(aux!=null){
+                    System.out.println("Paso 2");
+               
+                    if(aux.getJugador()==1){
+                        System.out.println("Paso 3");
+                       ((JButton)c).setIcon(icb);
+                    } else if(aux.getJugador()==2){
+                        System.out.println("Paso 4");
+                       ((JButton)c).setIcon(icn);
+                    }
+                }
+            }
+        }
         System.out.println("cantidad componentes " + jPanel2.getComponents().length);
+        
+        System.out.println("actionListener " + btn4_1.getActionListeners().length);
         
     }
     

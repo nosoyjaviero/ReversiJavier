@@ -10,6 +10,13 @@ package clases;
  * @author dieg_
  */
 public class nodos {
+
+    /**
+     * @return the jugador
+     */
+    public int getJugador() {
+        return jugador;
+    }
      private String nombre;
     private int jugador;
     
@@ -56,7 +63,7 @@ public class nodos {
      * @return the jugador
      */
     public int isJugador() {
-        return jugador;
+        return getJugador();
     }
 
     /**

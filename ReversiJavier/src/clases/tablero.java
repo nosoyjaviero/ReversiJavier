@@ -47,4 +47,19 @@ public class tablero {
             
         }
     }
+    
+    public nodos devolverNodo(String name){
+        nodos tmp =primero;
+        if(!esVacio()){
+            
+            while(tmp!=null){
+                if(tmp.getNombre().equals(name)){
+                    return tmp;
+                }
+                tmp= tmp.getSiguiente();
+            }
+        }
+        
+        return null;
+    }
 }
